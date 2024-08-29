@@ -17,8 +17,11 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 
-
-app.use(cors());
+const corsOptions = {
+  origin: "https://job-portal-five-theta.vercel.app", // Replace with your frontend URL
+  credentials: true, // Allow credentials (cookies, HTTP authentication)
+};
+app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 3000;
 
